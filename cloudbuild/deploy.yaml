@@ -1,0 +1,8 @@
+steps:
+- name: node:12
+  entrypoint: npm
+  args: ["run", "create-env"]
+  env:
+    - 'FOO=${_FOO}'
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ["app", "deploy", "app.yaml"]
